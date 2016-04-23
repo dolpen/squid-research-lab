@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "noImplicitAny": true
+  },
+  "files": [
+    "node_modules/angular2/typings/browser.d.ts"
+  ],
+  "compileOnSave": true,
+  "buildOnSave": true
+}
