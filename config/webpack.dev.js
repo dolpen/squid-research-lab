@@ -1,15 +1,8 @@
-/**
- * @author: @AngularClass
- */
 var webpack = require("webpack");
 const helpers = require('./helpers');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const abstractConfig = require('./webpack.abstract.js');
 
-
-/**
- * Webpack Constants
- */
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = webpackMerge(abstractConfig.metadata, {
@@ -18,16 +11,22 @@ const METADATA = webpackMerge(abstractConfig.metadata, {
     ENV: ENV,
     HMR: HMR
 });
+const ENTRY = webpackMerge(abstractConfig.entry, {
+    "wds-client": "webpack-dev-server/client?http://localhost:3000",
+    "wds-server": "webpack/hot/dev-server"
+});
 
 module.exports = webpackMerge(abstractConfig, {
     metadata: METADATA,
     debug: true,
     devtool: 'source-map',
+    entry: ENTRY,
     output: {
         path: helpers.root('dist'),
         filename: "[name].bundle.js",
         sourceMapFilename: '[name].map',
-        chunkFilename: '[id].chunk.js'
+        chunkFilename: '[id].chunk.js',
+        publicPath: '/dist/'
     },
     plugins: [
         new webpack.DefinePlugin({

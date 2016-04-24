@@ -1,13 +1,6 @@
-/**
- * @author: @AngularClass
- */
-
 const webpack = require('webpack');
 const helpers = require('./helpers');
 
-/*
- * Webpack Constants
- */
 const METADATA = {
     title: 'Angular2-TypeScript-Webpack-Builder',
     baseUrl: '/'
