@@ -5,17 +5,20 @@ import {Observable}     from 'rxjs/Observable';
 
 @Injectable()
 export class GearTypeService {
-    constructor(private http:Http) {
-    }
 
     private _fetchUrl
         = "https://gist.githubusercontent.com/dolpen/e84eaabe11fd30ebfe8cd3b8f0f85316/raw/6d4dadd5a659be4b6da2ab437ef253c48f796b73/gear_types.json";
+    private _promise:Promise<GearType[]>;
 
-    fetchAll():Promise<GearType[]> {
-        return this.http.get(this._fetchUrl)
+    constructor(private _http:Http) {
+        this._promise = this._http.get(this._fetchUrl)
             .catch(this.handleError)
             .map(this.extractData)
             .toPromise();
+    }
+
+    fetchAll():Promise<GearType[]> {
+        return this._promise;
     }
 
 
