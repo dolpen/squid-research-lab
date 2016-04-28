@@ -4,7 +4,7 @@ import {Observable}     from 'rxjs/Observable';
 
 export class JsonLoadService<T> {
 
-    protected _hotObservable:Observable<T>;
+    private _hotObservable:Observable<T>;
 
     constructor(protected _http:Http, protected _fetchUrl:string) {
         this._initObservable();
