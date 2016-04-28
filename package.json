@@ -1,7 +1,15 @@
 {
-  "name": "angular2-toh-webpack",
+  "name": "squid-research-lab",
   "version": "1.0.0",
   "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dolpen/squid-research-lab.git"
+  },
+  "engines": {
+    "node": "^5.8.0",
+    "npm": "^3.8.8"
+  },
   "scripts": {
     "typings": "typings",
     "build:prod": "webpack --config config/webpack.prod.js",
