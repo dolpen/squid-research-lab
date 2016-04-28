@@ -4,12 +4,11 @@ import {GearTypeService} from 'services/gear-type.service';
 
 @Component({
     selector: 'my-types',
-    template: `
-        <ul>
-        <li *ngFor = "#gearType of gearTypes">
+    template: `<ul>
+    <li *ngFor="#gearType of gearTypes">
         <span>{{gearType.id}}</span> {{gearType.label}}
-        </li>
-        </ul>
+    </li>
+</ul>
     `
 })
 export class TypesComponent implements OnInit {
@@ -24,7 +23,7 @@ export class TypesComponent implements OnInit {
     ngOnInit() {
         this._gearTypeService
             .fetchAll()
-            .then(
+            .subscribe(
                 results => this.gearTypes = results,
                 error => this.errorMessage = <any>error
             );
