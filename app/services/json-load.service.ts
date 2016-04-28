@@ -12,12 +12,11 @@ export class JsonLoadService<T> {
     private _initObservable():void {
         this._hotObservable = this._http.get(this._fetchUrl)
             .map(r => r.json()) // Response -> Json<T>
-            .catch(e => Observable.throw(e.message || 'Server error'))
             .publishReplay(1)
             .refCount(); // hot!
     }
 
-    fetch():Observable<T> {
-        return this._hotObservable;
+    fetch():Promise<T> {
+        return this._hotObservable.toPromise();
     }
 }

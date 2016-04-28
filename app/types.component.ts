@@ -23,9 +23,8 @@ export class TypesComponent implements OnInit {
     ngOnInit() {
         this._gearTypeService
             .fetch()
-            .subscribe(
-                results => this.gearTypes = results,
-                error => this.errorMessage = <any>error
+            .then(
+                results => this.gearTypes = results
             );
     }
 }
