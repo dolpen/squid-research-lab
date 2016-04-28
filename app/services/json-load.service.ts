@@ -1,5 +1,4 @@
-import {Injectable}     from 'angular2/core';
-import {Http, Response} from 'angular2/http';
+import {Http} from 'angular2/http';
 import {Observable}     from 'rxjs/Observable';
 
 export class JsonLoadService<T> {

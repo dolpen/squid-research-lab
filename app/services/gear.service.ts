@@ -1,7 +1,6 @@
 import {Injectable}     from 'angular2/core';
-import {Http, Response} from 'angular2/http';
-import {GearType}       from '../types/gear-type';
-import {Observable}     from 'rxjs/Observable';
+import {Http} from 'angular2/http';
+import {Gear}       from '../types/gear';
 import {JsonLoadService} from "./json-load.service";
 
 @Injectable()

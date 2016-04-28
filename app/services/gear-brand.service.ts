@@ -1,7 +1,7 @@
 import {Injectable}     from 'angular2/core';
-import {Http, Response} from 'angular2/http';
+import {Http} from 'angular2/http';
 import {GearBrand}       from '../types/gear-brand';
-import {Observable}     from 'rxjs/Observable';
+import {JsonLoadService} from "./json-load.service";
 
 @Injectable()
 export class GearBrandService extends JsonLoadService<GearBrand[]> {
