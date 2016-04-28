@@ -7,18 +7,18 @@ export class JsonLoadService<T> {
     protected _hotObservable:Observable<T>;
 
     constructor(protected _http:Http, protected _fetchUrl:string) {
-        this._initObservable(_fetchUrl);
+        this._initObservable();
     }
 
-    private _initObservable(_fetchUrl:string):void {
-        this._hotObservable = this._http.get(_fetchUrl)
+    private _initObservable():void {
+        this._hotObservable = this._http.get(this._fetchUrl)
             .map(r => r.json()) // Response -> Json<T>
             .catch(e => Observable.throw(e.message || 'Server error'))
             .publishReplay(1)
             .refCount(); // hot!
     }
 
-    fetchAll():Observable<T> {
+    fetch():Observable<T> {
         return this._hotObservable;
     }
 }

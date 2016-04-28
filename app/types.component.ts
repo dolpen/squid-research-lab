@@ -22,7 +22,7 @@ export class TypesComponent implements OnInit {
 
     ngOnInit() {
         this._gearTypeService
-            .fetchAll()
+            .fetch()
             .subscribe(
                 results => this.gearTypes = results,
                 error => this.errorMessage = <any>error
