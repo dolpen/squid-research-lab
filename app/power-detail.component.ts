@@ -1,22 +1,29 @@
 import {Component,OnInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
-import {GearBrand}       from 'types/gear-brand';
-import {GearBrandService} from 'services/gear-brand.service';
+import {GearPower}       from 'types/gear-power';
+import {GearPowerService} from 'services/gear-power.service';
+import {PowerBrandComponent} from './power-brand.component';
 
 @Component({
     selector: 'power-detail',
-    templateUrl: 'templates/power-detail.template.html'
+    templateUrl: 'templates/power-detail.template.html',
+    directives:[PowerBrandComponent]
 })
 export class PowerDetailComponent implements OnInit {
 
-    constructor(private _gearBrandService:GearBrandService, private _routeParams:RouteParams) {
+    power:GearPower;// 特定IDのギアパワー
 
+
+    constructor(private _gearPowerService:GearPowerService,
+                private _routeParams:RouteParams) {
     }
+
     ngOnInit() {
-        this._gearBrandService
-            .fetchByStrong()
+        let id = +this._routeParams.get('id');
+        this._gearPowerService
+            .fetch()
             .subscribe(
-                results => console.log(results)
+                results =>this.power = results.length > id ? results[id] : null
             );
     }
 }

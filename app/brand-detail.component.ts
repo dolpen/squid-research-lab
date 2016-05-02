@@ -11,7 +11,6 @@ import {BrandPowerComponent} from './brand-power.component';
 })
 export class BrandDetailComponent implements OnInit {
 
-    errorMessage:string;
     brand:GearBrand;
 
     constructor(private _gearBrandService:GearBrandService, private _routeParams:RouteParams) {
@@ -22,8 +21,7 @@ export class BrandDetailComponent implements OnInit {
         this._gearBrandService
             .fetch()
             .subscribe(
-                results =>this.brand = results.length > id ? results[id] : null,
-                error => this.errorMessage = <any>error
+                results =>this.brand = results.length > id ? results[id] : null
             );
     }
 }
