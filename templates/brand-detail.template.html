@@ -1,9 +1,9 @@
 <div *ngIf="brand">
     <div><label>名前: </label>{{brand.label}}</div>
     <div><label>付きやすいギアパワー: </label>
-        <brand-power [id]="brand.strong"></brand-power>
+        <brand-power [power]="brand.strong"></brand-power>
     </div>
     <div><label>付きにくいギアパワー: </label>
-        <brand-power [id]="brand.weak"></brand-power>
+        <brand-power [power]="brand.weak"></brand-power>
     </div>
 </div>

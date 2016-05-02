@@ -4,6 +4,8 @@ import {Observable}     from 'rxjs/Observable';
 import {JsonLoadService} from "./json-load.service";
 import {Gear,GearType,GearBrand,GearPower} from 'types/api';
 
+
+
 @Injectable()
 export class GearTypeService extends JsonLoadService<GearType[]> {
 
@@ -12,12 +14,6 @@ export class GearTypeService extends JsonLoadService<GearType[]> {
 
     constructor(protected _http:Http) {
         super(_http, GearTypeService.fetchUrl);
-    }
-
-    findById(id:number):Observable<GearType> {
-        return this.fetch().flatMap(
-            types => Observable.from(types).filter(type => type.id == id).take(1)
-        );
     }
 }
 
@@ -29,17 +25,6 @@ export class GearPowerService extends JsonLoadService<GearPower[]> {
 
     constructor(protected _http:Http) {
         super(_http, GearPowerService.fetchUrl);
-    }
-
-    findById(id:number):Observable<GearPower> {
-        return this.fetch().flatMap(
-            powers => Observable.from(powers).filter(power => power.id == id).take(1)
-        );
-    }
-    excludesAny():Observable<GearPower[]> {
-        return this.fetch().flatMap(
-            powers => Observable.from(powers).filter(power => power.id > 0).toArray()
-        );
     }
 }
 
@@ -55,23 +40,6 @@ export class GearBrandService extends JsonLoadService<GearBrand[]> {
         super(_http, GearBrandService.fetchUrl);
 
     }
-    findById(id:number):Observable<GearBrand> {
-        return this.fetch().flatMap(
-            brands => Observable.from(brands).filter(brand => brand.id == id).take(1)
-        );
-    }
-
-    findByStrong(id:number):Observable<GearBrand[]> {
-        return this.fetch().flatMap(
-            brands => Observable.from(brands).filter(brand => brand.strong == id).toArray()
-        );
-    }
-
-    findByWeak(id:number):Observable<GearBrand[]> {
-        return this.fetch().flatMap(
-            brands => Observable.from(brands).filter(brand => brand.weak == id).toArray()
-        );
-    }
 
 }
 
@@ -85,16 +53,4 @@ export class GearService extends JsonLoadService<Gear[]> {
         super(_http, GearService.fetchUrl);
     }
 
-    filterByCondition(type:number, brand:number, main:number):Observable<Gear[]> {
-        return this.fetch().flatMap(
-            gears => Observable
-                .from(gears)
-                .filter(gear => {
-                    return (type < 0 || gear.type == type)
-                        && (brand < 0 || gear.brand == brand)
-                        && (main <= 0 || gear.main == main);
-                })
-                .toArray()
-        );
-    }
 }

@@ -8,7 +8,9 @@
 </select>
 <select [(ngModel)]="filterBrand" (ngModelChange)="onChangeFilter()">
     <option value="-1">絞り込まない</option>
-    <option *ngFor="let brand of brands" [value]="brand.id">{{brand.label}}</option>
+    <option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.label}} <span *ngIf="brand.strong.id > 0">({{brand.strong.label}}がつきやすい)</span>
+    </option>
 </select>
 
 <table *ngIf="filteredGears">

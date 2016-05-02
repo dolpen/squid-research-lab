@@ -1,11 +1,11 @@
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {Component} from 'angular2/core';
 import {Http,HTTP_PROVIDERS} from 'angular2/http';
 import {BrandDetailComponent} from 'components/brand/brand-detail.component';
 import {PowerDetailComponent} from 'components/power/power-detail.component';
 import {GearListComponent} from 'components/list/gear-list.component';
-import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
-import {GearDataService} from 'services/data.service'
+import {GearService,GearBrandService,GearPowerService,GearTypeService} from 'services/api.service';
+import {ComputedGearService,ComputedGearBrandService,ComputedGearPowerService} from 'services/computed.service';
 
 /**
  * これはシェルコンポーネント。責務は以下の通り
@@ -18,7 +18,8 @@ import {GearDataService} from 'services/data.service'
     {
         path: '/list',
         name: 'GearList',
-        component: GearListComponent
+        component: GearListComponent,
+        useAsDefault: true
     },
     {
         path: '/brand/:id',
@@ -45,7 +46,9 @@ import {GearDataService} from 'services/data.service'
         GearBrandService,
         GearPowerService,
         GearTypeService,
-        GearDataService
+        ComputedGearService,
+        ComputedGearBrandService,
+        ComputedGearPowerService
     ],
     directives: [
         ROUTER_DIRECTIVES

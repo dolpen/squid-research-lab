@@ -1,8 +1,8 @@
 import {Component,OnInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
-import {Gear,GearType,GearBrand,GearPower} from 'types/api';
-import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
 import {BrandPowerComponent} from './brand-power.component';
+import {ComputedGearBrand} from "types/computed";
+import {ComputedGearBrandService} from "services/computed.service";
 
 @Component({
     selector: 'brand-detail',
@@ -11,15 +11,16 @@ import {BrandPowerComponent} from './brand-power.component';
 })
 export class BrandDetailComponent implements OnInit {
 
-    brand:GearBrand;
+    brand:ComputedGearBrand;
 
-    constructor(private _gearBrandService:GearBrandService, private _routeParams:RouteParams) {
+    constructor(private _computedGearBrandService:ComputedGearBrandService,
+                private _routeParams:RouteParams) {
 
     }
 
     ngOnInit() {
         let id = +this._routeParams.get('id');
-        this._gearBrandService
+        this._computedGearBrandService
             .findById(id)
             .subscribe(result =>this.brand = result);
     }

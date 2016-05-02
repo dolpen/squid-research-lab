@@ -1,26 +1,13 @@
-import {Component,OnInit,Input} from 'angular2/core';
-import {Gear,GearType,GearBrand,GearPower} from 'types/api';
-import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
+import {Component,Input} from 'angular2/core';
+import {ComputedGearPower} from 'types/computed';
 
 @Component({
     selector: 'brand-power',
     templateUrl: 'templates/brand-power.template.html'
 })
-export class BrandPowerComponent implements OnInit {
+export class BrandPowerComponent {
 
     @Input()
-    id:number;
+    power:ComputedGearPower;
 
-    power:GearPower;
-
-
-    constructor(private _gearPowerService:GearPowerService) {
-
-    }
-
-    ngOnInit() {
-        this._gearPowerService
-            .findById(this.id)
-            .subscribe(result =>this.power = result);
-    }
 }

@@ -1,30 +1,13 @@
-import {Component,OnInit,Input} from 'angular2/core';
-import {Gear,GearType,GearBrand,GearPower} from 'types/api';
-import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
-import {GearDataService} from 'services/data.service'
+import {Component,Input} from 'angular2/core';
+import {ComputedGearBrand} from 'types/computed';
 
 @Component({
     selector: 'power-brand',
     templateUrl: 'templates/power-brand.template.html'
 })
-export class PowerBrandComponent implements OnInit {
+export class PowerBrandComponent {
 
     @Input()
-    id:number;
-    @Input()
-    strong:boolean;
+    brands:ComputedGearBrand[];
 
-    brands:GearBrand[];
-
-    constructor(private _gearBrandService:GearBrandService) {
-    }
-
-    ngOnInit() {
-        (this.strong
-                ? this._gearBrandService.findByStrong(this.id)
-                : this._gearBrandService.findByWeak(this.id)
-        ).subscribe(
-            results =>this.brands = results
-        )
-    }
 }
