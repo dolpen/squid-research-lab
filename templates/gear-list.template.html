@@ -1,5 +1,18 @@
-<ul *ngIf="gears">
-    <li *ngFor="let gear of gears">
-        <listed-gear [gear]="gear"></listed-gear>
-    </li>
-</ul>
+<select [(ngModel)]="filterType" (ngModelChange)="onChangeFilter()">
+    <option value="-1">絞り込まない</option>
+    <option *ngFor="let type of types" [value]="type.id">{{type.label}}</option>
+</select>
+<select [(ngModel)]="filterMain" (ngModelChange)="onChangeFilter()">
+    <option value="-1">絞り込まない</option>
+    <option *ngFor="let main of powers" [value]="main.id">{{main.label}}</option>
+</select>
+<select [(ngModel)]="filterBrand" (ngModelChange)="onChangeFilter()">
+    <option value="-1">絞り込まない</option>
+    <option *ngFor="let brand of brands" [value]="brand.id">
+        {{brand.label}} <span *ngIf="brand.strong.id > 0">({{brand.strong.label}}がつきやすい)</span>
+    </option>
+</select>
+
+<table *ngIf="filteredGears">
+    <tr *ngFor="let gear of filteredGears" [listedGear]="gear"></tr>
+</table>

@@ -1,3 +1,6 @@
-{{gear.label}} [{{gear.rarity}}]&nbsp;
-<span *ngIf="brand">ブランド : {{brand.label}}&nbsp;</span>
-<span *ngIf="main">メインスロット : {{main.label}}</span>
+<td>{{gear.id}}</td>
+<td><span *ngIf="gear.type">{{gear.type.label}}</span></td>
+<td>{{gear.label}}</td>
+<td>{{gear.rarity}}</td>
+<td><span *ngIf="gear.brand">{{gear.brand.label}}</span></td>
+<td><span *ngIf="gear.main">{{gear.main.label}}</span></td>
