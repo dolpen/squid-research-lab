@@ -37,7 +37,7 @@ export class GearListComponent implements OnInit {
         this._gearTypeService.fetch().subscribe(results => this.types = results);
         this._gearBrandService.fetch().subscribe(results => this.brands = results);
         this._gearPowerService.excludesAny().subscribe(results => this.powers = results);
-        this._gearDataService.fetchBrands().subscribe(results => console.log(results));
+        this._gearDataService.fetchGears().subscribe(results => console.log(results));
     }
 
     onChangeFilter() {

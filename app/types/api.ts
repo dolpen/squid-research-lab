@@ -1,3 +1,6 @@
+export class GearMetadata{}
+
+
 export class Gear {
     id:number;
     label:string;
@@ -11,11 +14,11 @@ export class GearType {
     name: string;
     label: string;
 }
-export class GearPower {
+export class GearPower extends GearMetadata{
     id: number;
     label: string;
 }
-export class GearBrand {
+export class GearBrand extends GearMetadata{
     id: number;
     label: string;
     strong: number;

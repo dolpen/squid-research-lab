@@ -13,6 +13,7 @@ export class GearTypeService extends JsonLoadService<GearType[]> {
     constructor(protected _http:Http) {
         super(_http, GearTypeService.fetchUrl);
     }
+
     findById(id:number):Observable<GearType> {
         return this.fetch().flatMap(
             types => Observable.from(types).filter(type => type.id == id).take(1)

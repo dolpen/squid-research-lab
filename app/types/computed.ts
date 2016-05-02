@@ -1,29 +1,25 @@
 import {Gear,GearType,GearBrand,GearPower} from 'types/api';
 
 export class ComputedGearBrand {
-    id: number;
-    label: string;
-    strong: GearPower;
-    weak: GearPower;
+    id:number;
+    label:string;
+    strong:GearPower;
+    weak:GearPower;
 
-    constructor(gearBrand:GearBrand,strong:GearPower,weak:GearPower){
+    constructor(gearBrand:GearBrand) {
         this.id = gearBrand.id;
         this.label = gearBrand.label;
-        this.strong = strong;
-        this.weak = weak;
     }
 }
 export class ComputedGearPower {
-    id: number;
-    label: string;
-    strongs: GearBrand[];
-    weaks: GearBrand[];
+    id:number;
+    label:string;
+    strongs:GearBrand[];
+    weaks:GearBrand[];
 
-    constructor(gearPower:GearPower,strongs:GearBrand[],weaks:GearBrand[]){
+    constructor(gearPower:GearPower) {
         this.id = gearPower.id;
         this.label = gearPower.label;
-        this.strongs = strongs;
-        this.weaks = weaks;
     }
 }
 export class ComputedGear {
@@ -33,4 +29,10 @@ export class ComputedGear {
     type:GearType;
     brand:ComputedGearBrand;
     rarity:number;
+
+    constructor(gear:Gear) {
+        this.id = gear.id;
+        this.label = gear.label;
+        this.rarity = gear.rarity;
+    }
 }
