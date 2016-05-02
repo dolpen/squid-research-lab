@@ -1,13 +1,13 @@
 import {Component,OnInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
-import {GearPower}       from 'types/gear-power';
-import {GearPowerService} from 'services/gear-power.service';
+import {Gear,GearType,GearBrand,GearPower} from 'types/api';
+import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
 import {PowerBrandComponent} from './power-brand.component';
 
 @Component({
     selector: 'power-detail',
     templateUrl: 'templates/power-detail.template.html',
-    directives:[PowerBrandComponent]
+    directives: [PowerBrandComponent]
 })
 export class PowerDetailComponent implements OnInit {
 

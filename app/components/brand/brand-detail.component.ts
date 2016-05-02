@@ -1,7 +1,7 @@
 import {Component,OnInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
-import {GearBrand}       from 'types/gear-brand';
-import {GearBrandService} from 'services/gear-brand.service';
+import {Gear,GearType,GearBrand,GearPower} from 'types/api';
+import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
 import {BrandPowerComponent} from './brand-power.component';
 
 @Component({

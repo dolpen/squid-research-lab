@@ -1,14 +1,9 @@
 import {Component,OnInit} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
+import {Gear,GearType,GearBrand,GearPower} from 'types/api';
+import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
 import {ListedGearComponent} from './listed-gear.component';
-import {Gear}       from 'types/gear';
-import {GearBrand} from "types/gear-brand";
-import {GearPower} from "types/gear-power";
-import {GearType} from "types/gear-type";
-import {GearService} from 'services/gear.service';
-import {GearBrandService} from 'services/gear-brand.service';
-import {GearPowerService} from 'services/gear-power.service';
-import {GearTypeService} from 'services/gear-type.service';
+import {GearDataService} from 'services/data.service'
 
 @Component({
     selector: 'gear-list',
@@ -33,6 +28,7 @@ export class GearListComponent implements OnInit {
                 private _gearTypeService:GearTypeService,
                 private _gearBrandService:GearBrandService,
                 private _gearPowerService:GearPowerService,
+                private _gearDataService:GearDataService,
                 private _routeParams:RouteParams) {
     }
 
@@ -41,6 +37,7 @@ export class GearListComponent implements OnInit {
         this._gearTypeService.fetch().subscribe(results => this.types = results);
         this._gearBrandService.fetch().subscribe(results => this.brands = results);
         this._gearPowerService.excludesAny().subscribe(results => this.powers = results);
+        this._gearDataService.fetchBrands().subscribe(results => console.log(results));
     }
 
     onChangeFilter() {

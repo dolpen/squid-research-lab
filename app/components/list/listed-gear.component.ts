@@ -1,13 +1,7 @@
 import {Component,OnInit,Input} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
-import {Gear}       from 'types/gear';
-import {GearBrand} from "types/gear-brand";
-import {GearPower} from "types/gear-power";
-import {GearType} from "types/gear-type";
-import {GearService} from 'services/gear.service';
-import {GearBrandService} from 'services/gear-brand.service';
-import {GearPowerService} from 'services/gear-power.service';
-import {GearTypeService} from 'services/gear-type.service';
+import {Gear,GearType,GearBrand,GearPower} from 'types/api';
+import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
 
 @Component({
     selector: '[listedGear]',

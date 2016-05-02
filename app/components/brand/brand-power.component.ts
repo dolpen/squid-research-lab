@@ -1,6 +1,6 @@
 import {Component,OnInit,Input} from 'angular2/core';
-import {GearPower}       from 'types/gear-power';
-import {GearPowerService} from 'services/gear-power.service';
+import {Gear,GearType,GearBrand,GearPower} from 'types/api';
+import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
 
 @Component({
     selector: 'brand-power',

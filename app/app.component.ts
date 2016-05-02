@@ -4,10 +4,8 @@ import {Http,HTTP_PROVIDERS} from 'angular2/http';
 import {BrandDetailComponent} from 'components/brand/brand-detail.component';
 import {PowerDetailComponent} from 'components/power/power-detail.component';
 import {GearListComponent} from 'components/list/gear-list.component';
-import {GearBrandService} from 'services/gear-brand.service';
-import {GearPowerService} from 'services/gear-power.service';
-import {GearService} from 'services/gear.service';
-import {GearTypeService} from 'services/gear-type.service';
+import {GearService,GearTypeService,GearBrandService,GearPowerService} from 'services/api.service';
+import {GearDataService} from 'services/data.service'
 
 /**
  * これはシェルコンポーネント。責務は以下の通り
@@ -46,7 +44,8 @@ import {GearTypeService} from 'services/gear-type.service';
         GearService,
         GearBrandService,
         GearPowerService,
-        GearTypeService
+        GearTypeService,
+        GearDataService
     ],
     directives: [
         ROUTER_DIRECTIVES
