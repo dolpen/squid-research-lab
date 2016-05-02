@@ -21,8 +21,8 @@ export class PowerBrandComponent implements OnInit {
 
     ngOnInit() {
         (this.strong
-                ? this._gearBrandService.findbyStrong(this.id)
-                : this._gearBrandService.findbyWeak(this.id)
+                ? this._gearBrandService.findByStrong(this.id)
+                : this._gearBrandService.findByWeak(this.id)
         ).subscribe(
             results =>this.brands = results
         )

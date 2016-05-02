@@ -10,7 +10,7 @@ export class BrandPowerComponent implements OnInit {
 
     @Input()
     id:number;
-    errorMessage:string;
+
     power:GearPower;
 
 
@@ -20,10 +20,7 @@ export class BrandPowerComponent implements OnInit {
 
     ngOnInit() {
         this._gearPowerService
-            .fetch()
-            .subscribe(
-                results =>this.power = results.length > this.id ? results[this.id] : null,
-                error => this.errorMessage = <any>error
-            );
+            .findById(this.id)
+            .subscribe(result =>this.power = result);
     }
 }

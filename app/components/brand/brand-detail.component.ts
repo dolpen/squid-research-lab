@@ -20,7 +20,7 @@ export class BrandDetailComponent implements OnInit {
     ngOnInit() {
         let id = +this._routeParams.get('id');
         this._gearBrandService
-            .findbyId(id)
+            .findById(id)
             .subscribe(result =>this.brand = result);
     }
 }

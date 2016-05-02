@@ -1,6 +1,7 @@
 import {Injectable}     from 'angular2/core';
 import {Http} from 'angular2/http';
 import {Gear}       from '../types/gear';
+import {Observable}     from 'rxjs/Observable';
 import {JsonLoadService} from "./json-load.service";
 
 @Injectable()
@@ -13,4 +14,16 @@ export class GearService extends JsonLoadService<Gear[]> {
         super(_http, GearService.fetchUrl);
     }
 
+    filterByCondition(type:number, brand:number, main:number):Observable<Gear[]> {
+        return this.fetch().flatMap(
+            gears => Observable
+                .from(gears)
+                .filter(gear => {
+                    return (type < 0 || gear.type == type)
+                        && (brand < 0 || gear.brand == brand)
+                        && (main <= 0 || gear.main == main);
+                })
+                .toArray()
+        );
+    }
 }

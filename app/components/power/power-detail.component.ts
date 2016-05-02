@@ -21,7 +21,7 @@ export class PowerDetailComponent implements OnInit {
     ngOnInit() {
         let id = +this._routeParams.get('id');
         this._gearPowerService
-            .findbyId(id)
+            .findById(id)
             .subscribe(result =>this.power = result);
     }
 }
