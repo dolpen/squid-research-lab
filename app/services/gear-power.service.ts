@@ -1,6 +1,7 @@
 import {Injectable}     from 'angular2/core';
-import {Http} from 'angular2/http';
+import {Http, Response} from 'angular2/http';
 import {GearPower}       from '../types/gear-power';
+import {Observable}     from 'rxjs/Observable';
 import {JsonLoadService} from "./json-load.service";
 
 @Injectable()
@@ -12,6 +13,5 @@ export class GearPowerService extends JsonLoadService<GearPower[]> {
     constructor(protected _http:Http) {
         super(_http, GearPowerService.fetchUrl);
     }
-
 
 }
