@@ -7,7 +7,7 @@ import {BrandPowerComponent} from './brand-power.component';
 @Component({
     selector: 'brand-detail',
     templateUrl: 'templates/brand-detail.template.html',
-    directives:[BrandPowerComponent]
+    directives: [BrandPowerComponent]
 })
 export class BrandDetailComponent implements OnInit {
 
@@ -16,12 +16,11 @@ export class BrandDetailComponent implements OnInit {
     constructor(private _gearBrandService:GearBrandService, private _routeParams:RouteParams) {
 
     }
+
     ngOnInit() {
         let id = +this._routeParams.get('id');
         this._gearBrandService
-            .fetch()
-            .subscribe(
-                results =>this.brand = results.length > id ? results[id] : null
-            );
+            .findbyId(id)
+            .subscribe(result =>this.brand = result);
     }
 }

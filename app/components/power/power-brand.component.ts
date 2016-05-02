@@ -20,18 +20,11 @@ export class PowerBrandComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._gearBrandService
-            .fetch()
-            .flatMap(brands => {
-                    return Observable
-                        .from(brands)
-                        .filter(b =>
-                            (this.strong && b.strong == this.id)
-                            || (!this.strong && b.weak == this.id)
-                        )
-                        .toArray(); // GearBrand[][]
-                }
-            )
-            .subscribe(results =>this.brands = results)
+        (this.strong
+                ? this._gearBrandService.findbyStrong(this.id)
+                : this._gearBrandService.findbyWeak(this.id)
+        ).subscribe(
+            results =>this.brands = results
+        )
     }
 }

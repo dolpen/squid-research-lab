@@ -7,7 +7,7 @@ import {JsonLoadService} from "./json-load.service";
 export class GearService extends JsonLoadService<Gear[]> {
 
     static fetchUrl:string
-        = "https://gist.github.com/dolpen/e84eaabe11fd30ebfe8cd3b8f0f85316/raw/6d4dadd5a659be4b6da2ab437ef253c48f796b73/gears.json";
+        = "https://gist.githubusercontent.com/dolpen/e84eaabe11fd30ebfe8cd3b8f0f85316/raw/235f60aa6fc056889822bdc046180f2c5b4cbde5/gears.json";
 
     constructor(protected _http:Http) {
         super(_http, GearService.fetchUrl);

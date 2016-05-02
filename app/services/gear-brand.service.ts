@@ -15,5 +15,22 @@ export class GearBrandService extends JsonLoadService<GearBrand[]> {
         super(_http, GearBrandService.fetchUrl);
 
     }
+    findbyId(id:number):Observable<GearBrand> {
+        return this.fetch().flatMap(
+            brands => Observable.from(brands).filter(brand => brand.id == id).take(1)
+        );
+    }
+
+    findbyStrong(id:number):Observable<GearBrand[]> {
+        return this.fetch().flatMap(
+            brands => Observable.from(brands).filter(brand => brand.strong == id).toArray()
+        );
+    }
+
+    findbyWeak(id:number):Observable<GearBrand[]> {
+        return this.fetch().flatMap(
+            brands => Observable.from(brands).filter(brand => brand.weak == id).toArray()
+        );
+    }
 
 }

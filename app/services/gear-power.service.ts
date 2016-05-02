@@ -14,4 +14,9 @@ export class GearPowerService extends JsonLoadService<GearPower[]> {
         super(_http, GearPowerService.fetchUrl);
     }
 
+    findbyId(id:number):Observable<GearPower> {
+        return this.fetch().flatMap(
+            powers => Observable.from(powers).filter(power => power.id == id).take(1)
+        );
+    }
 }
