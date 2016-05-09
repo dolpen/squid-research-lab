@@ -1,0 +1,29 @@
+<table *ngIf="powers" class="table">
+    <thead class="thead-inverse">
+    <tr>
+        <th>#</th>
+        <th>名称</th>
+        <th>付きやすいブランド</th>
+        <th>付きにくいブランド</th>
+        <th>詳細</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let power of powers">
+        <th scope="row">{{power.id}}</th>
+        <td>{{power.label}}</td>
+        <td>
+            <power-brand [brands]="power.strongs"></power-brand>
+        </td>
+        <td>
+            <power-brand [brands]="power.weaks"></power-brand>
+        </td>
+        <td>
+            <a class="btn btn-secondary" [routerLink]="['PowerDetail',{id:power.id}]" role="button">詳細 »</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+

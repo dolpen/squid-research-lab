@@ -1,9 +1,15 @@
-<div *ngIf="brand">
-    <div><label>名前: </label>{{brand.label}}</div>
-    <div><label>付きやすいギアパワー: </label>
-        <brand-power [power]="brand.strong"></brand-power>
-    </div>
-    <div><label>付きにくいギアパワー: </label>
-        <brand-power [power]="brand.weak"></brand-power>
+<div class="jumbotron">
+    <div class="container" *ngIf="brand">
+        <h1 class="display-3">{{brand.label}}</h1>
+        <div>
+            <label>付きやすいギアパワー: </label>
+            <brand-power [power]="brand.strong"></brand-power>
+        </div>
+        <div>
+            <label>付きにくいギアパワー: </label>
+            <brand-power [power]="brand.weak"></brand-power>
+        </div>
     </div>
 </div>
+
+<gear-table [gears]="gears"></gear-table>
