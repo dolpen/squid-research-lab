@@ -1,8 +1,8 @@
-import {Component,OnInit} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {Component,OnInit} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 import {BrandPowerComponent} from './brand-power.component';
-import {ComputedGearBrand} from "types/computed";
-import {ComputedGearBrandService} from "services/computed.service";
+import {ComputedGearBrand} from '../../types/computed';
+import {ComputedGearBrandService} from '../../services/computed.service';
 
 @Component({
     selector: 'brand-list',

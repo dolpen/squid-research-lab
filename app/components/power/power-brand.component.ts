@@ -1,6 +1,9 @@
-import {Component,Input} from 'angular2/core';
-import {ComputedGearBrand} from 'types/computed';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
+import {Component,Input} from '@angular/core';
+import {ComputedGearBrand} from '../../types/computed';
+import {ROUTER_DIRECTIVES} from '@angular/router';
+
+
+
 
 @Component({
     selector: 'power-brand',

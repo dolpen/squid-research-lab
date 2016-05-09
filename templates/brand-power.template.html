@@ -1,5 +1,5 @@
 <span *ngIf="power && power.id > 0">
-   <a [routerLink]="['PowerDetail', {id: power.id}]"> {{power.label}} </a></span>
+   <a [routerLink]="['/power', power.id]"> {{power.label}} </a></span>
 <span *ngIf="!(power && power.id > 0)">
     なし
 </span>

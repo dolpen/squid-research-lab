@@ -1,11 +1,11 @@
-import {Component,OnInit} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
-import {ComputedGearBrand} from "types/computed";
-import {ComputedGearBrandService} from "services/computed.service";
-import {ComputedGearPower} from "../../types/computed";
-import {ComputedGearPowerService} from "../../services/computed.service";
-import {PowerBrandComponent} from "./power-brand.component";
-
+import {Component,OnInit} from '@angular/core';
+import {ROUTER_DIRECTIVES} from '@angular/router';
+import {ComputedGearBrand} from '../../types/computed';
+import {ComputedGearBrandService} from '../../services/computed.service';
+import {ComputedGearPower} from '../../types/computed';
+import {ComputedGearPowerService} from '../../services/computed.service';
+import {PowerBrandComponent} from './power-brand.component';
+import {PowerDetailComponent} from "./power-detail.component";
 @Component({
     selector: 'power-list',
     templateUrl: 'templates/power-list.template.html',

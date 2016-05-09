@@ -3,10 +3,10 @@
 <td>{{gear.label}}</td>
 <td>{{gear.rarity}}</td>
 <td><span *ngIf="gear.brand">
-    <a [routerLink]="['BrandDetail', {id: gear.brand.id}]"> {{gear.brand.label}} </a>
+    <a [routerLink]="['/brand', gear.brand.id]"> {{gear.brand.label}} </a>
 </span></td>
 <td>
     <span *ngIf="gear.main">
-    <a [routerLink]="['PowerDetail', {id: gear.main.id}]"> {{gear.main.label}} </a>
+    <a [routerLink]="['/power', gear.main.id]"> {{gear.main.label}} </a>
     </span>
 </td>
