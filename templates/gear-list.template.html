@@ -13,6 +13,4 @@
     </option>
 </select>
 
-<table *ngIf="filteredGears">
-    <tr *ngFor="let gear of filteredGears" [listedGear]="gear"></tr>
-</table>
+<gear-table [gears]="filteredGears"></gear-table>

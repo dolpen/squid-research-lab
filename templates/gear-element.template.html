@@ -1,0 +1,12 @@
+<th scope="row">{{gear.id}}</th>
+<td><span *ngIf="gear.type">{{gear.type.label}}</span></td>
+<td>{{gear.label}}</td>
+<td>{{gear.rarity}}</td>
+<td><span *ngIf="gear.brand">
+    <a [routerLink]="['/brand', gear.brand.id]"> {{gear.brand.label}} </a>
+</span></td>
+<td>
+    <span *ngIf="gear.main">
+    <a [routerLink]="['/power', gear.main.id]"> {{gear.main.label}} </a>
+    </span>
+</td>

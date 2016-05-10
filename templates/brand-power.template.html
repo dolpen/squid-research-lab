@@ -1,6 +1,5 @@
-<span *ngIf="power">
-    {{power.label}}
-</span>
-<span *ngIf="!power">
+<span *ngIf="power && power.id > 0">
+   <a [routerLink]="['/power', power.id]"> {{power.label}} </a></span>
+<span *ngIf="!(power && power.id > 0)">
     なし
 </span>

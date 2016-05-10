@@ -1,0 +1,15 @@
+<table *ngIf="gears" class="table">
+    <thead class="thead-inverse">
+    <tr>
+        <th>#</th>
+        <th>種別</th>
+        <th>名称</th>
+        <th>レアリティ</th>
+        <th>ブランド</th>
+        <th>メインスロット</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let gear of gears" [gear]="gear"></tr>
+    </tbody>
+</table>

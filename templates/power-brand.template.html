@@ -1,5 +1,4 @@
-<ul *ngIf="brands">
-    <li *ngFor="let brand of brands">
-        {{brand.label}}
-    </li>
-</ul>
+<div *ngIf="brands && brands.length > 0" >
+    <a *ngFor="let brand of brands" [routerLink]="['/brand', brand.id]">{{brand.label}}</a><br/>
+</div>
+<div *ngIf="!(brands && brands.length > 0)">なし</div>
